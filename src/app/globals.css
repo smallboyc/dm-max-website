@@ -3,25 +3,79 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* theme color variables to use in RGB declarations */
+  --red: 200;
+  --green: 60;
+  --blue: 255;
+  /* the threshold at which colors are considered "light". 
+    Range: decimals from 0 to 1, recommended 0.5 - 0.6 */
+  --threshold: 0.5;
+  /* the threshold at which a darker border will be applied.
+    Range: decimals from 0 to 1, recommended 0.8+ */
+  --border-threshold: 0.8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  h1 {
+    @apply text-extra leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply text-xxxlarge leading-tight;
+  }
+
+  h3 {
+    @apply text-large leading-tight;
+  }
+
+  body {
+    @apply text-normal;
+  }
+
+  main {
+    @apply space-y-28 lg:space-y-36;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .text-extra {
+    @apply text-3xl font-semibold md:text-4xl;
+  }
+
+  .text-xxxlarge {
+    @apply text-2xl md:text-3xl;
+  }
+
+  .text-xxlarge {
+    @apply text-md md:text-2xl;
+  }
+
+  .text-xlarge {
+    @apply text-lg md:text-xl;
+  }
+
+  .text-large {
+    @apply text-md md:text-lg;
+  }
+
+  .text-medium {
+    @apply text-sm md:text-md;
+  }
+
+  .text-normal {
+    @apply text-sm md:text-base;
+  }
+
+  .text-small {
+    @apply text-xs md:text-sm;
+  }
+
+  .text-xsmall {
+    @apply text-xxs md:text-xs;
+  }
+
+  .max-w-container {
+    @apply container mx-auto w-full px-4 lg:px-8;
+  }
 }
+
