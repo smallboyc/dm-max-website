@@ -43,7 +43,7 @@
   }
 
   .text-xxxlarge {
-    @apply text-2xl md:text-3xl;
+    @apply text-6xl md:text-8xl;
   }
 
   .text-xxlarge {
@@ -75,7 +75,7 @@
   }
 
   .max-w-container {
-    @apply container mx-auto w-full px-4 lg:px-8;
+    @apply lg:container mx-auto w-full px-4 md:px-6 xl:px-12;
   }
 }
 
