@@ -7,18 +7,38 @@ import { FaLinkedin } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import classNames from "classnames";
+import { useEffect, useState } from "react";
 
 const navigation = [
   { id: 0, name: "home", href: "/" },
   { id: 1, name: "education", href: "/education" },
-  { id: 2, name: "works", href: "/works" },
+  { id: 2, name: "about", href: "/about" },
   { id: 3, name: "contact", href: "/contact" },
 ];
 
 export default function Navigation() {
+  const [NavBg, setNavBg] = useState(false);
+
+  useEffect(() => {
+    const handleNavBg = () => {
+      if (window.scrollY >= 85) {
+        setNavBg(true);
+      } else {
+        setNavBg(false);
+      }
+    };
+    window.addEventListener("scroll", handleNavBg);
+  }, []);
+
   const pathname = usePathname();
   return (
-    <Disclosure as="nav" className="fixed top-0 z-50 w-full">
+    <Disclosure
+      as="nav"
+      className={classNames(
+        NavBg && "bg-white",
+        "sticky top-0 z-50 duration-200 ease-in"
+      )}
+    >
       {({ open }) => (
         <>
           <div className="max-w-container py-2">
@@ -50,12 +70,14 @@ export default function Navigation() {
                   <FaLinkedin className="h-5 w-auto" />
                 </div>
                 <div className="flex gap-2">
-                  <button
-                    type="button"
-                    className="relative inline-flex items-center gap-x-1.5 rounded-md bg-variation px-3 py-2 text-base font-semibold text-black shadow-sm hover:bg-variation/80 hover:scale-105 duration-100 ease-out tracking-wider"
-                  >
-                    the blog
-                  </button>
+                  <a href="/works">
+                    <button
+                      type="button"
+                      className="relative inline-flex items-center gap-x-1.5 rounded-md bg-variation px-3 py-2 text-base font-semibold text-black NavBg-sm hover:bg-variation/80 hover:scale-105 duration-100 ease-out tracking-wider"
+                    >
+                      works
+                    </button>
+                  </a>
                   <div className="-ml-2 mr-2 flex items-center lg:hidden">
                     {/* Mobile menu button */}
                     <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-black  ml-2">
@@ -77,7 +99,7 @@ export default function Navigation() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden absolute bg-white w-full shadow">
+          <Disclosure.Panel className="lg:hidden absolute bg-white w-full NavBg">
             <div className="space-y-1 pb-3 pt-2">
               {navigation.map((nav) => (
                 <Disclosure.Button

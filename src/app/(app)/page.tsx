@@ -1,8 +1,9 @@
-import Hero from "@/components/home/Hero";
+import Tools from "@/components/Tools";
+
 export default function Home() {
   return (
-    <>
-      <Hero />
-    </>
+    <div className="max-w-container my-20">
+      <Tools />
+    </div>
   );
 }
