@@ -16,7 +16,7 @@ module.exports = {
         primary: "#0F172A",
         variation: "#31EBA1",
         soft: "#F8FAFF",
-        dark: "#374866",
+        dark: "black",
         gray: { DEFAULT: "#6B7280", light: "#f9fafb" },
       },
       fontSize: {

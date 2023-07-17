@@ -1,3 +1,4 @@
+import Footer from "@/common/Footer";
 import Navigation from "@/common/Navigation";
 export default function Landinglayout({
   children,
@@ -9,6 +10,7 @@ export default function Landinglayout({
     <div>
       <Navigation />
       {children}
+      <Footer />
     </div>
   );
 }

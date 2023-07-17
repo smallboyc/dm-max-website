@@ -9,7 +9,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 
-const navigation = [
+export const navigation = [
   { id: 0, name: "home", href: "/" },
   { id: 1, name: "education", href: "/education" },
   { id: 2, name: "about", href: "/about" },
