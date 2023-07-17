@@ -22,7 +22,7 @@ export default function About() {
           <div className="relative col-span-2 lg:col-start-1 lg:row-start-2">
             <blockquote className=" leading-8  sm:leading-9">
               <Text size={Text.size.LARGE} weight={Text.weight.BOLD}>
-                Engineering school student in Champs-sur-Marne (Paris) ,
+                French Engineering school student in Champs-sur-Marne (Paris) ,
                 I&apos;m passionate about{" "}
                 <span className="text-variation">digital creation</span>.
                 Between development, drawing, video or animation, I like to

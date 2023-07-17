@@ -1,38 +1,11 @@
 "use client";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  AcademicCapIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  ComputerDesktopIcon,
-  CubeIcon,
-  HomeIcon,
-  PencilIcon,
-  PuzzlePieceIcon,
-  UserIcon,
-  VideoCameraIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import classNames from "classnames";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
 import Image from "next/image";
 import Link from "next/link";
 import Features from "./Features";
-
-const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "Web", href: "#", icon: ComputerDesktopIcon, current: false },
-  { name: "2D / 3D", href: "#", icon: CubeIcon, current: false },
-  { name: "Video", href: "#", icon: VideoCameraIcon, current: false },
-  { name: "Art", href: "#", icon: PencilIcon, current: false },
-  { name: "Game", href: "#", icon: PuzzlePieceIcon, current: false },
-  { name: "Data / ML / DL", href: "#", icon: ChartPieIcon, current: false },
-];
-const teams = [
-  { name: "School", href: "#", icon: AcademicCapIcon, current: false },
-  { name: "Personal ", href: "#", icon: UserIcon, current: false },
-  ,
-];
 
 export default function SideBar({ data }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
