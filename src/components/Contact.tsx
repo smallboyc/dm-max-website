@@ -1,13 +1,10 @@
 "use client";
-import { useState } from "react";
-import { Switch } from "@headlessui/react";
 import { Title, Text } from "@/common/typography";
-import classNames from "classnames";
 import { ErrorMessage, Field, Form, Formik, FormikProps } from "formik";
 import { formSchema } from "@/lib/validation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import axios from "axios";
 interface formValues {
   firstname: string;
   lastname: string;
@@ -46,7 +43,25 @@ export default function Contact() {
           initialValues={initialValues}
           validationSchema={formSchema}
           onSubmit={(values) => {
-            console.log(values);
+            {
+              values.news &&
+                axios
+                  .post(
+                    `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local/register`,
+                    {
+                      username: `${values.firstname} ${values.lastname}`,
+                      email: values.email,
+                      password: `${process.env.GENERATE_PASSWORD}`,
+                    }
+                  )
+                  .then((response) => {
+                    console.log("User profile", response.data.user);
+                    console.log("User token", response.data.jwt);
+                  })
+                  .catch((error) => {
+                    console.log("An error occurred:", error.response);
+                  });
+            }
           }}
         >
           {({ isSubmitting, isValid, dirty }: FormikProps<any>) => (
@@ -57,7 +72,7 @@ export default function Contact() {
                     htmlFor="firstname"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    First Name
+                    First Name*
                   </label>
                   <div className="mt-2.5">
                     <Field
@@ -66,14 +81,21 @@ export default function Contact() {
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
                     />
                   </div>
-                  <ErrorMessage name="firstname" />
+                  <ErrorMessage
+                    name="firstname"
+                    render={(msg: any) => (
+                      <div className="text-red-700 text-xs ml-2 mt-2">
+                        {msg}
+                      </div>
+                    )}
+                  />
                 </div>
                 <div>
                   <label
                     htmlFor="lastname"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Last Name
+                    Last Name*
                   </label>
                   <div className="mt-2.5">
                     <Field
@@ -82,7 +104,14 @@ export default function Contact() {
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
                     />
                   </div>
-                  <ErrorMessage name="lastname" />
+                  <ErrorMessage
+                    name="lastname"
+                    render={(msg: any) => (
+                      <div className="text-red-700 text-xs ml-2 mt-2">
+                        {msg}
+                      </div>
+                    )}
+                  />
                 </div>
 
                 <div className="col-span-2">
@@ -90,7 +119,7 @@ export default function Contact() {
                     htmlFor="email"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    E-mail
+                    E-mail*
                   </label>
                   <div className="mt-2.5">
                     <Field
@@ -99,7 +128,14 @@ export default function Contact() {
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
                     />
                   </div>
-                  <ErrorMessage name="email" />
+                  <ErrorMessage
+                    name="email"
+                    render={(msg: any) => (
+                      <div className="text-red-700 text-xs ml-2 mt-2">
+                        {msg}
+                      </div>
+                    )}
+                  />
                 </div>
 
                 <div className="col-span-2">
@@ -107,7 +143,7 @@ export default function Contact() {
                     htmlFor="message"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Message
+                    Message*
                   </label>
                   <div className="mt-2.5">
                     <Field
@@ -117,7 +153,14 @@ export default function Contact() {
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
                     />
                   </div>
-                  <ErrorMessage name="message" />
+                  <ErrorMessage
+                    name="message"
+                    render={(msg: any) => (
+                      <div className="text-red-700 text-xs ml-2 mt-2">
+                        {msg}
+                      </div>
+                    )}
+                  />
                 </div>
 
                 <div className="relative flex items-start col-span-2">
