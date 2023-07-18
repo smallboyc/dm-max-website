@@ -33,7 +33,12 @@ export default function Contact() {
           >
             contact
           </Title>
-          <Text align={Text.align.CENTER} size={Text.size.LARGE}>
+          <Text
+            align={Text.align.CENTER}
+            size={Text.size.LARGE}
+            color={Text.color.GRAY}
+            italic
+          >
             Need a service or you want to follow my works? No problem!
           </Text>
         </div>
@@ -42,7 +47,7 @@ export default function Contact() {
         <Formik
           initialValues={initialValues}
           validationSchema={formSchema}
-          onSubmit={(values) => {
+          onSubmit={(values, { resetForm }) => {
             {
               values.news &&
                 axios
@@ -51,16 +56,14 @@ export default function Contact() {
                     {
                       username: `${values.firstname} ${values.lastname}`,
                       email: values.email,
-                      password: `${process.env.GENERATE_PASSWORD}`,
+                      password: values.lastname,
                     }
                   )
                   .then((response) => {
-                    console.log("User profile", response.data.user);
-                    console.log("User token", response.data.jwt);
-                  })
-                  .catch((error) => {
-                    console.log("An error occurred:", error.response);
-                  });
+                    console.log(response);
+                  }),
+                resetForm();
+              axios.post(`/api/sendgrid`, values);
             }
           }}
         >

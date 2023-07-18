@@ -13,7 +13,12 @@ export default function Tools() {
         >
           tools
         </Title>
-        <Text align={Text.align.CENTER} size={Text.size.LARGE}>
+        <Text
+          align={Text.align.CENTER}
+          size={Text.size.LARGE}
+          color={Text.color.GRAY}
+          italic
+        >
           I work with different software and programming languages to design my
           different works!
         </Text>

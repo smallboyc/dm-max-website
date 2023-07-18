@@ -123,7 +123,7 @@
 //     </div>
 //   )
 // }
-import { getData } from "@/lib/api";
+import { getData } from "@/lib/strapi";
 
 export default async function HomeWorks() {
   const { data } = await getData("works");

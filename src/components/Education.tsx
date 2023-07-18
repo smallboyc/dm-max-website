@@ -41,7 +41,12 @@ export default function Education() {
           >
             education
           </Title>
-          <Text align={Text.align.CENTER} size={Text.size.LARGE}>
+          <Text
+            align={Text.align.CENTER}
+            size={Text.size.LARGE}
+            color={Text.color.GRAY}
+            italic
+          >
             Because it all starts with education!
           </Text>
         </div>

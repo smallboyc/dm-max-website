@@ -14,7 +14,7 @@ export default function About() {
           >
             about
           </Title>
-          <Text size={Text.size.LARGE}>
+          <Text size={Text.size.LARGE} color={Text.color.GRAY} italic>
             Let&apos;s quickly talk about this little boy!
           </Text>
         </div>

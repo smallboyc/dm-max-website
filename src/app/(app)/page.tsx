@@ -5,7 +5,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="my-20 flex flex-col gap-y-20">
+    <div className="my-20 flex flex-col gap-y-20 ">
       <Education />
       <About />
       <Tools />

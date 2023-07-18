@@ -7,7 +7,7 @@ export default function Bloglayout({
 }) {
   return (
     <div>
-      <SideBar data = {children} />
+      <SideBar data={children} />
     </div>
   );
 }

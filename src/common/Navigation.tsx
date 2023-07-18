@@ -36,7 +36,7 @@ export default function Navigation() {
       as="nav"
       className={classNames(
         NavBg && "bg-white",
-        "fixed top-0 z-10 duration-200 ease-in w-full"
+        "sticky top-0 z-10 duration-200 ease-in"
       )}
     >
       {({ open }) => (

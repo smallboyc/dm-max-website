@@ -7,7 +7,7 @@ export default function Landinglayout({
   params: { lang: string };
 }) {
   return (
-    <div>
+    <div className="max-border-website">
       <Navigation />
       {children}
       <Footer />
