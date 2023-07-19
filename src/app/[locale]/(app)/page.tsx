@@ -1,3 +1,4 @@
+"use client";
 import Education from "@/components/Education";
 import Tools from "@/components/Tools";
 import About from "@/components/About";

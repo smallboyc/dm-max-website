@@ -1,8 +1,11 @@
+"use client";
 import { Title } from "@/common/typography";
 import { Text } from "@/common/typography";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("about");
   return (
     <section className="isolate overflow-hidden bg-white px-6 lg:px-8">
       <div className="flex flex-col mx-auto max-w-2xl lg:max-w-4xl gap-8">
@@ -12,7 +15,7 @@ export default function About() {
             color={Title.color.VARIATION}
             weight={Title.weight.BOLD}
           >
-            about
+            {t("title")}
           </Title>
           <Text size={Text.size.LARGE} color={Text.color.GRAY} italic>
             Let&apos;s quickly talk about this little boy!

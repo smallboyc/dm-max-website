@@ -1,12 +1,15 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { SiAdobecreativecloud, SiStrapi } from "react-icons/si";
-import { SiPandas } from "react-icons/si";
-import { SiTailwindcss } from "react-icons/si";
-import { SiNumpy } from "react-icons/si";
-import { SiUnity } from "react-icons/si";
-import { SiNextdotjs } from "react-icons/si";
-import { SiBlender } from "react-icons/si";
+import {
+  SiAdobecreativecloud,
+  SiStrapi,
+  SiPandas,
+  SiTailwindcss,
+  SiNumpy,
+  SiUnity,
+  SiNextdotjs,
+  SiBlender,
+} from "react-icons/si";
 
 import "swiper/css";
 import "swiper/css/effect-flip";

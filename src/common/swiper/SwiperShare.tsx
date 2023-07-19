@@ -1,8 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SiGooglecolab } from "react-icons/si";
-import { FaGitlab } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaGitlab, FaGithub } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
 
 import "swiper/css";

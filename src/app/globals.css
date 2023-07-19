@@ -75,11 +75,11 @@
   }
 
   .max-w-container {
-    @apply lg:container mx-auto w-full px-4 md:px-6 xl:px-12;
+    @apply lg:container mx-auto px-4 md:px-6 xl:px-12;
   }
 
   .max-border-website {
-    @apply xl:container mx-auto w-full shadow-xl;
+    @apply xl:container mx-auto shadow-xl;
   }
 }
 
