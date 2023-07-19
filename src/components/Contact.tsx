@@ -13,7 +13,29 @@ interface formValues {
   news: boolean;
 }
 
+const toastStyle: any = {
+  position: "bottom-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+};
+
 export default function Contact() {
+  
+  const registerToNewsletter = (data: any) => {
+    axios.post(`/api/sendgrid/newsletter`, data);
+    toast.success("Welcome to newsletter", toastStyle);
+  };
+
+  const sendMail = (data: any) => {
+    axios.post(`/api/sendgrid/mail`, data);
+    toast.success("Mail sent !", toastStyle);
+  };
+
   const initialValues: formValues = {
     firstname: "",
     lastname: "",
@@ -48,23 +70,9 @@ export default function Contact() {
           initialValues={initialValues}
           validationSchema={formSchema}
           onSubmit={(values, { resetForm }) => {
-            {
-              values.news &&
-                axios
-                  .post(
-                    `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local/register`,
-                    {
-                      username: `${values.firstname} ${values.lastname}`,
-                      email: values.email,
-                      password: values.lastname,
-                    }
-                  )
-                  .then((response) => {
-                    console.log(response);
-                  }),
-                resetForm();
-              axios.post(`/api/sendgrid`, values);
-            }
+            values.news && registerToNewsletter(values);
+            sendMail(values);
+            resetForm();
           }}
         >
           {({ isSubmitting, isValid, dirty }: FormikProps<any>) => (
@@ -193,18 +201,6 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={!(isValid && dirty) || isSubmitting}
-                  onClick={() =>
-                    toast.success("🦄 Wow so easy!", {
-                      position: "bottom-right",
-                      autoClose: 5000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                      theme: "light",
-                    })
-                  }
                   className="block w-full rounded-md bg-variation px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-variation/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-variation"
                 >
                   Let&apos;s talk
