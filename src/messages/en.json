@@ -1,5 +1,51 @@
 {
+  "navigation": {
+    "home": "home",
+    "education": "education",
+    "about": "about",
+    "contact": "contact"
+  },
+  "education": {
+    "title": "education",
+    "subtitle": "Because it all starts with education!",
+    "IMAC": {
+      "name": "IMAC",
+      "type": "Engineering School",
+      "content": "“I am currently studying in a creative engineering school for 3 years. This is the IMAC for Multimedia Audiovisual and Communication Engineer.”"
+    },
+    "FAC": {
+      "name": "Nantes University",
+      "type": "College",
+      "content": "“I spent 2 years learning mathematics and physics in preparatory class, as well as a 3rd year in physics license where I took a break in the second semester to specialize in programming.”"
+    }
+  },
   "about": {
-    "title": "about"
+    "title": "about",
+    "subtitle": "Let's quickly talk about this little boy!",
+    "content": "French engineering school student in Champs-sur-Marne (Paris), I'm passionate about digital creation. Between development, drawing, video, or animation, I like to bring my ideas to life through different technologies.",
+    "status": "Creative Student"
+  },
+  "tools": {
+    "title": "tools",
+    "subtitle": "I work with different software and programming languages to design my different works!",
+    "list_tools": "I use",
+    "list_share": "I share with"
+  },
+  "contact": {
+    "title": "contact",
+    "subtitle": "Need a service or you want to follow my works? No problem!",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "email": "E-mail",
+    "message": "Message",
+    "button": "Let's talk!",
+    "newsletter": "Subscribe to my"
+  },
+  "error": {
+    "max_15": "* Must contain a maximum of 15 characters.",
+    "min_2": "* Must contain at least 2 characters.",
+    "min_10": "* Must contain at least 10 characters.",
+    "invalid_email": "* E-mail address invalid.",
+    "required_field": "* Required field."
   }
 }

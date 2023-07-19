@@ -1,5 +1,5 @@
 import { ErrorMessage, Field } from "formik";
-
+import { useTranslations } from "next-intl";
 interface InputProps {
   name: string;
   label: string;
@@ -15,6 +15,7 @@ const Input: React.FC<InputProps> = ({
   component,
   rows,
 }) => {
+  const t = useTranslations("error");
   return (
     <div>
       <label
@@ -35,7 +36,7 @@ const Input: React.FC<InputProps> = ({
       <ErrorMessage
         name={label}
         render={(msg: any) => (
-          <div className="text-red-700 text-xs ml-2 mt-2">{msg}</div>
+          <div className="text-red-700 text-xs ml-2 mt-2">{t(msg)}</div>
         )}
       />
     </div>

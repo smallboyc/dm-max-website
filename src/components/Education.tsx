@@ -1,8 +1,10 @@
+"use client"
 import { Title, Text } from "@/common/typography";
 import { MdEngineering } from "react-icons/md";
 import { LiaSchoolSolid } from "react-icons/lia";
 import Image from "next/image";
 import classNames from "classnames";
+import { useTranslations } from "next-intl";
 
 const education = [
   {
@@ -10,26 +12,25 @@ const education = [
     logo: "/images/logoIMAC.png",
     style: "h-12 w-16",
     logo_type: MdEngineering,
-    type: "Engineering School",
-    name: "IMAC",
+    type: "IMAC.type",
+    name: "IMAC.name",
     date: "2023 - ?",
-    description:
-      " “I am currently studying in a creative engineering school for 3 years. This is the IMAC for Multimedia Audiovisual and Communication Engineer.”",
+    description: "IMAC.content",
   },
   {
     id: 1,
     logo: "/images/NantesUniversite.png",
     style: "w-44 h-auto",
     logo_type: LiaSchoolSolid,
-    type: "College",
-    name: "Nantes University",
+    type: "FAC.type",
+    name: "FAC.name",
     date: "2020 - 2023",
-    description:
-      " “I spent 2 years learning mathematics and physics in preparatory class, as well as a 3rd year in physics license where I took a break in the second semester to specialize in programming.”",
+    description: "FAC.content",
   },
 ];
 
 export default function Education() {
+  const t = useTranslations("education");
   return (
     <section className=" bg-slate-100/50 py-10">
       <div className="max-w-container flex flex-col items-center gap-10 justify-center">
@@ -39,7 +40,7 @@ export default function Education() {
             color={Title.color.VARIATION}
             weight={Title.weight.BOLD}
           >
-            education
+            {t("title")}
           </Title>
           <Text
             align={Text.align.CENTER}
@@ -47,7 +48,7 @@ export default function Education() {
             color={Text.color.GRAY}
             italic
           >
-            Because it all starts with education!
+            {t("subtitle")}
           </Text>
         </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -73,7 +74,7 @@ export default function Education() {
                 <figure className="flex flex-auto flex-col justify-between">
                   <blockquote className="leading-8">
                     <Text size={Text.size.LARGE} color={Text.color.DARK}>
-                      {school.description}
+                      {t(school.description)}
                     </Text>
                   </blockquote>
                   <figcaption className="mt-10 flex items-center gap-x-6">
@@ -86,11 +87,11 @@ export default function Education() {
                         color={Text.color.DARK}
                         weight={Text.weight.BOLD}
                       >
-                        {school.type}
+                        {t(school.type)}
                       </Text>
                       <div className="mt-1">
                         <Text size={Text.size.NORMAL} color={Text.color.GRAY}>
-                          {school.name}
+                          {t(school.name)}
                         </Text>
                       </div>
                     </div>

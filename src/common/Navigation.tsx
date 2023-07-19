@@ -9,6 +9,7 @@ import Language from "./elements/Language";
 import Link from "next/link";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export const navigation = [
   { id: 0, name: "home", href: "" },
@@ -17,7 +18,21 @@ export const navigation = [
   { id: 3, name: "contact", href: "/contact" },
 ];
 
+const social = [
+  {
+    name: "GitHub",
+    icon: FaGithub,
+    href: "https://github.com/smallboyc",
+  },
+  {
+    name: "Linkedin",
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/maxence-dupuis-19559025a/",
+  },
+];
+
 export default function Navigation({ locale }: { locale: string }) {
+  const t = useTranslations("navigation");
   const [navShadow, setNavShadow] = useState(false);
   useEffect(() => {
     const handleNavShadow = () => {
@@ -58,15 +73,22 @@ export default function Navigation({ locale }: { locale: string }) {
                       href={nav.href}
                       className="inline-flex items-center px-1 pt-1 text-base font-medium text-gray-900"
                     >
-                      {nav.name}
+                      {t(nav.name)}
                     </Link>
                   ))}
                 </div>
               </div>
               <div className="flex items-center space-x-6">
                 <div className="hidden md:flex space-x-6">
-                  <FaGithub className="h-5 w-auto" />
-                  <FaLinkedin className="h-5 w-auto" />
+                  {social.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-gray-600 hover:text-gray-900"
+                    >
+                      <item.icon className="h-5 w-5" aria-hidden="true" />
+                    </Link>
+                  ))}
                 </div>
                 <div className="hidden md:block">
                   <Language locale={locale} />
@@ -108,13 +130,20 @@ export default function Navigation({ locale }: { locale: string }) {
                     " py-2 pl-3 pr-4 text-base font-medium block border-l-4 sm:pl-5 sm:pr-6 hover:bg-indigo-50 duration-100 ease-out"
                   )}
                 >
-                  {nav.name}
+                  {t(nav.name)}
                 </Disclosure.Button>
               ))}
 
               <div className="flex md:hidden space-x-6 mx-6 pt-2">
-                <FaGithub className="h-5 w-auto" />
-                <FaLinkedin className="h-5 w-auto" />
+                {social.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-600 hover:text-gray-900"
+                  >
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  </Link>
+                ))}
               </div>
               <div className="block md:hidden w-24 ml-3 pt-4">
                 <Language locale={locale} />

@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Input from "@/common/elements/Input";
+import { useTranslations } from "next-intl";
 interface formValues {
   firstname: string;
   lastname: string;
@@ -26,6 +27,7 @@ const toastStyle: any = {
 };
 
 export default function Contact() {
+  const t = useTranslations("contact");
   const registerToNewsletter = (data: any) => {
     axios.post(`/api/sendgrid/newsletter`, data);
     toast.success("Welcome to newsletter", toastStyle);
@@ -53,7 +55,7 @@ export default function Contact() {
             color={Title.color.VARIATION}
             weight={Title.weight.BOLD}
           >
-            contact
+            {t("title")}
           </Title>
           <Text
             align={Text.align.CENTER}
@@ -61,7 +63,7 @@ export default function Contact() {
             color={Text.color.GRAY}
             italic
           >
-            Need a service or you want to follow my works? No problem!
+            {t("subtitle")}
           </Text>
         </div>
       </div>
@@ -78,14 +80,14 @@ export default function Contact() {
           {({ isSubmitting, isValid, dirty }: FormikProps<any>) => (
             <Form>
               <div className="grid gap-x-8 gap-y-6 grid-cols-2">
-                <Input name="First Name" label="firstname" type="text" />
-                <Input name="Last Name" label="lastname" type="text" />
+                <Input name={t("firstname")} label="firstname" type="text" />
+                <Input name={t("lastname")} label="lastname" type="text" />
                 <div className="col-span-2">
-                  <Input name="Email" label="email" type="email" />
+                  <Input name={t("email")} label="email" type="email" />
                 </div>
                 <div className="col-span-2">
                   <Input
-                    name="Message"
+                    name={t("message")}
                     label="message"
                     component="textarea"
                     rows={4}
@@ -105,13 +107,9 @@ export default function Contact() {
                       htmlFor="comments"
                       className="font-medium text-gray-900"
                     >
-                      Check this
+                      {t("newsletter")}
                     </label>{" "}
-                    <span className="text-gray-500">
-                      if you want to receive{" "}
-                      <span className="text-variation">latest news</span> about
-                      my works.
-                    </span>
+                    <span className="text-variation/90">newsletter</span>.
                   </div>
                 </div>
               </div>
@@ -121,7 +119,7 @@ export default function Contact() {
                   disabled={!(isValid && dirty) || isSubmitting}
                   className="block w-full rounded-md bg-variation px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-variation/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-variation"
                 >
-                  Let&apos;s talk
+                  {t("button")}
                 </button>
                 <ToastContainer className="absolute block z-50" />
               </div>

@@ -4,6 +4,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { Text } from "./typography";
+import { useTranslations } from "next-intl";
 
 const social = [
   {
@@ -19,6 +20,7 @@ const social = [
 ];
 
 export default function Footer() {
+  const t = useTranslations("navigation");
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-7xl overflow-hidden py-10">
@@ -32,7 +34,7 @@ export default function Footer() {
                 href={item.href}
                 className="text-sm leading-6 text-gray-600 hover:text-gray-900"
               >
-                {item.name}
+                {t(item.name)}
               </Link>
             </div>
           ))}

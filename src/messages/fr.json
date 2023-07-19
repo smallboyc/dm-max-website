@@ -1,5 +1,51 @@
 {
+  "navigation": {
+    "home": "accueil",
+    "education": "éducation",
+    "about": "à propos",
+    "contact": "contact"
+  },
+  "education": {
+    "title": "éducation",
+    "subtitle": "Parce que tout commence par la formation!",
+    "IMAC": {
+      "name": "IMAC",
+      "type": "Ecole d'ingénieurs",
+      "content": "“J'étudie actuellement dans une école d'ingénieurs créatifs pour une durée de 3 ans. Il s'agit de l'IMAC pour Ingénieur Multimédia Audiovisuel et Communication.”"
+    },
+    "FAC": {
+      "name": "Université de Nantes",
+      "type": "Faculté",
+      "content": "“J'ai passé 2 ans à apprendre les mathématiques et la physique en classe préparatoire, ainsi qu'une 3ème année en licence physique où j'ai effectué une césure au second semestre pour me spécialiser en programmation.”"
+    }
+  },
   "about": {
-    "title": "à propos"
+    "title": "à propos",
+    "subtitle": "Parlons rapidement de ce petit garçon!",
+    "content": "Étudiant en école d'ingénieur à Champs-sur-Marne (Paris), je suis passionné par la création numérique. Entre développement, dessin, vidéo ou animation, j'aime donner vie à mes idées à travers différentes technologies.",
+    "status": "Etudiant Créatif"
+  },
+  "tools": {
+    "title": "outils",
+    "subtitle": "Je travaille avec différents logiciels et langages de programmation pour concevoir mes différentes projets!",
+    "list_tools": "J'utilise",
+    "list_share": "Je partage avec"
+  },
+  "contact": {
+    "title": "contact",
+    "subtitle": "Besoin d'un service ou vous souhaitez suivre mes projets? Aucun problème!",
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "email": "E-mail",
+    "message": "Message",
+    "button": "C'est parti!",
+    "newsletter": "S'abonner à ma"
+  },
+  "error": {
+    "max_15": "* Doit au maximum contenir 15 caractères.",
+    "min_2": "* Doit au minimum contenir 2 caractères.",
+    "min_10": "* Doit au minimum contenir 10 caractères.",
+    "invalid_email": "* Adresse e-mail invalide.",
+    "required_field": "* Champ requis."
   }
 }
