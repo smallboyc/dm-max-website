@@ -1,10 +1,11 @@
 "use client";
 import { Title, Text } from "@/common/typography";
-import { ErrorMessage, Field, Form, Formik, FormikProps } from "formik";
+import { Field, Form, Formik, FormikProps } from "formik";
 import { formSchema } from "@/lib/validation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import Input from "@/common/elements/Input";
 interface formValues {
   firstname: string;
   lastname: string;
@@ -25,7 +26,6 @@ const toastStyle: any = {
 };
 
 export default function Contact() {
-  
   const registerToNewsletter = (data: any) => {
     axios.post(`/api/sendgrid/newsletter`, data);
     toast.success("Welcome to newsletter", toastStyle);
@@ -78,99 +78,17 @@ export default function Contact() {
           {({ isSubmitting, isValid, dirty }: FormikProps<any>) => (
             <Form>
               <div className="grid gap-x-8 gap-y-6 grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="firstname"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    First Name*
-                  </label>
-                  <div className="mt-2.5">
-                    <Field
-                      name="firstname"
-                      type="text"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                  <ErrorMessage
-                    name="firstname"
-                    render={(msg: any) => (
-                      <div className="text-red-700 text-xs ml-2 mt-2">
-                        {msg}
-                      </div>
-                    )}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="lastname"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    Last Name*
-                  </label>
-                  <div className="mt-2.5">
-                    <Field
-                      name="lastname"
-                      type="text"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                  <ErrorMessage
-                    name="lastname"
-                    render={(msg: any) => (
-                      <div className="text-red-700 text-xs ml-2 mt-2">
-                        {msg}
-                      </div>
-                    )}
-                  />
-                </div>
-
+                <Input name="First Name" label="firstname" type="text" />
+                <Input name="Last Name" label="lastname" type="text" />
                 <div className="col-span-2">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    E-mail*
-                  </label>
-                  <div className="mt-2.5">
-                    <Field
-                      name="email"
-                      type="email"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                  <ErrorMessage
-                    name="email"
-                    render={(msg: any) => (
-                      <div className="text-red-700 text-xs ml-2 mt-2">
-                        {msg}
-                      </div>
-                    )}
-                  />
+                  <Input name="Email" label="email" type="email" />
                 </div>
-
                 <div className="col-span-2">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    Message*
-                  </label>
-                  <div className="mt-2.5">
-                    <Field
-                      name="message"
-                      as="textarea"
-                      rows={4}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-variation sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                  <ErrorMessage
-                    name="message"
-                    render={(msg: any) => (
-                      <div className="text-red-700 text-xs ml-2 mt-2">
-                        {msg}
-                      </div>
-                    )}
+                  <Input
+                    name="Message"
+                    label="message"
+                    component="textarea"
+                    rows={4}
                   />
                 </div>
 
