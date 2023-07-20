@@ -1,4 +1,3 @@
-"use client";
 import {
   AcademicCapIcon,
   ChartPieIcon,
@@ -19,19 +18,16 @@ import { AiOutlineTeam } from "react-icons/ai";
 import { PiArticleMediumBold } from "react-icons/pi";
 
 const navigation = [
-  { name: "Home", href: "/works", icon: HomeIcon },
-  {
-    name: "Web",
-    href: "/works/web",
-    icon: ComputerDesktopIcon,
-  },
-  { name: "2D / 3D", href: "#", icon: CubeIcon },
-  { name: "Video", href: "#", icon: VideoCameraIcon },
-  { name: "Art", href: "#", icon: PencilIcon },
-  { name: "Game", href: "#", icon: PuzzlePieceIcon },
-  { name: "Data / ML / DL", href: "#", icon: ChartPieIcon },
-  { name: "Entertainment", href: "#", icon: PiArticleMediumBold },
+  { slug: null, icon: HomeIcon },
+  { slug: "web", icon: ComputerDesktopIcon },
+  { slug: "2d-3d", icon: CubeIcon },
+  { slug: "video", icon: VideoCameraIcon },
+  { slug: "art", icon: PencilIcon },
+  { slug: "game", icon: PuzzlePieceIcon },
+  { slug: "data-ml-dl", icon: ChartPieIcon },
+  { slug: "entertainment", icon: PiArticleMediumBold },
 ];
+
 const type = [
   { name: "School", href: "#", icon: AcademicCapIcon },
   { name: "Personal", href: "#", icon: UserIcon },
@@ -40,28 +36,42 @@ const type = [
   ,
 ];
 
-export default function Features({ author }: any) {
+export default function Features({ locale, author, data }: any) {
   const pathname = usePathname();
+
   return (
     <nav className="flex flex-1 flex-col">
       <ul role="list" className="flex flex-1 flex-col gap-y-7">
         <li>
           <ul role="list" className="-mx-2 space-y-1">
-            {navigation.map((item) => (
-              <li key={item.name}>
+            {data.map((item: any) => (
+              <li key={item.attributes.Title}>
                 <Link
-                  href={item.href}
+                  href={`/works/${
+                    item.attributes.slug == null ? "" : item.attributes.slug
+                  }`}
                   className={classNames(
-                    pathname == item.href
+                    pathname == `/${locale}/${item.attributes.slug}` ||
+                      pathname == `/${item.attributes.slug}`
                       ? "bg-gray-800 text-white"
                       : "text-gray-400 hover:text-white hover:bg-gray-800",
                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                   )}
                 >
-                  <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
-                  {item.name}
+                  {navigation.map(
+                    (el) =>
+                      el.slug == item.attributes.slug && (
+                        <el.icon
+                          key={""}
+                          className="h-6 w-6 shrink-0"
+                          aria-hidden="true"
+                        />
+                      )
+                  )}
+
+                  {item.attributes.Title}
                 </Link>
-                {item.name == "Home" && (
+                {item.attributes.Title == "Home" && (
                   <div className="mx-2 text-xs font-semibold leading-6 text-variation mt-5">
                     Projects
                   </div>

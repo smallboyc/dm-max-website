@@ -36,9 +36,6 @@ html {
     @apply text-normal;
   }
 
-  main {
-    @apply space-y-28 lg:space-y-36;
-  }
 }
 
 @layer utilities {

@@ -2,12 +2,11 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
+import Breadcrumb from "@/common/elements/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
-import Features from "./Features";
-
-export default function SideBar({ data }: any) {
+import Features from "@/common/works/Features";
+export default function WorksNavigation({ locale, children, data }: any){
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -78,7 +77,7 @@ export default function SideBar({ data }: any) {
                         />
                       </Link>
                     </div>
-                    <Features author={false} />
+                    <Features locale={locale} author={false} data={data} />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -101,7 +100,7 @@ export default function SideBar({ data }: any) {
                 />
               </Link>
             </div>
-            <Features author={true} />
+            <Features locale={locale} author={true} data={data} />
           </div>
         </div>
 
@@ -136,8 +135,9 @@ export default function SideBar({ data }: any) {
           </Link>
         </div>
 
-        <main className="py-10 lg:pl-72">
-          <div className="px-4 sm:px-6 lg:px-8">{data}</div>
+        <main className="lg:pl-72">
+          <Breadcrumb />
+          <div className="px-4 sm:px-6 lg:px-8">{children}</div>
         </main>
       </div>
     </>

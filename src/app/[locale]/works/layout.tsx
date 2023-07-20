@@ -1,13 +1,21 @@
-import SideBar from "@/common/works/SideBar";
-export default function Bloglayout({
+import WorksNavigation from "@/common/works/Navigation";
+import { getData } from "@/lib/strapi";
+
+export default async function Workslayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: { locale: string };
 }) {
+  const { locale } = params;
+  const { data } = await getData("navigations?populate=*");
+  const navigation_data = data[0].attributes.domains.data;
+  console.log(navigation_data);
+
   return (
-    <div>
-      <SideBar data={children} />
-    </div>
+    <WorksNavigation locale={locale} data={navigation_data}>
+      {children}
+    </WorksNavigation>
   );
 }

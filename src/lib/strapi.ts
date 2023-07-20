@@ -5,3 +5,4 @@ export async function getData(path: string) {
   });
   return res.json();
 }
+

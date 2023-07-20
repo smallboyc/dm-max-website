@@ -126,7 +126,6 @@
 import { getData } from "@/lib/strapi";
 
 export default async function HomeWorks() {
-  const { data } = await getData("works");
-  console.log(data);
-  return <div>Hello {data[0].attributes.title}</div>;
+  
+  return <div>Hello</div>;
 }
