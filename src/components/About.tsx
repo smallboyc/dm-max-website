@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 export default function About() {
   const t = useTranslations("about");
   return (
-    <section className="isolate overflow-hidden bg-white px-6 lg:px-8">
+    <section id="about" className="isolate scroll-mt-40  bg-white px-6 lg:px-8">
       <div className="flex flex-col mx-auto max-w-2xl lg:max-w-4xl gap-8">
         <div className="flex flex-col items-center gap-5">
           <Title

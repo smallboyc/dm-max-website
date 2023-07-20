@@ -15,6 +15,10 @@
   --border-threshold: 0.8;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 @layer base {
   h1 {
     @apply text-gigalarge leading-tight tracking-tight;
@@ -43,7 +47,7 @@
   }
 
   .text-megalarge {
-    @apply text-4xl md:text-6xl;
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
 
   .text-xxlarge {

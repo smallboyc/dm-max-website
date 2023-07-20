@@ -47,7 +47,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="isolate bg-slate-100/50 p-10">
+    <div id="contact" className="scroll-mt-20 isolate bg-slate-100/50 p-10">
       <div className="mx-auto max-w-2xl text-center">
         <div className="flex flex-col items-center gap-5">
           <Title

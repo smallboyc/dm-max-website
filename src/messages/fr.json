@@ -5,6 +5,21 @@
     "about": "à propos",
     "contact": "contact"
   },
+  "hero": {
+    "status": "Etudiant Créatif",
+    "title_1": "Suivez mes projets à travers la plateforme",
+    "title_2": ".",
+    "clear": "Clair.",
+    "clear_content": "La volonté de créer une interface dans laquelle je puisse organiser et partager tous mes différents projets et créations!",
+    "share": "Partager.",
+    "share_content": "Vous pouvez interagir sur certains projets en postant des commentaires.",
+    "up_to_date": "À jour.",
+    "up_to_date_content": "N'hésitez pas à garder un œil sur les derniers projets en vous inscrivant à ma newsletter via le formulaire de contact!",
+    "simple": "Simple.",
+    "simple_content": "Une documentation rapide est disponible.",
+    "button_discover": "Découvrir",
+    "button_made_with": "Fait avec"
+  },
   "education": {
     "title": "éducation",
     "subtitle": "Parce que tout commence par la formation!",

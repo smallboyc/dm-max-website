@@ -5,6 +5,21 @@
     "about": "about",
     "contact": "contact"
   },
+  "hero": {
+    "status": "Creative Student",
+    "title_1": "Follow my projects through the",
+    "title_2": " platform.",
+    "clear": "Clear.",
+    "clear_content": " I wanted to create an interface in which I could organize and share all my different projects and creations!",
+    "share": "Share.",
+    "share_content": "You can interact on some projects by posting comments.",
+    "up_to_date": "Up to date.",
+    "up_to_date_content": "Feel free to keep an eye on the latest projects by joining my newsletter via the contact form!",
+    "simple": "Simple.",
+    "simple_content": "Quick documentation is available.",
+    "button_discover": "Discover",
+    "button_made_with": "Made with"
+  },
   "education": {
     "title": "education",
     "subtitle": "Because it all starts with education!",
@@ -19,9 +34,7 @@
       "content": "“I spent 2 years learning mathematics and physics in preparatory class, as well as a 3rd year in physics license where I took a break in the second semester to specialize in programming.”"
     }
   },
-  "hero": {
-    "status": "Creative Student"
-  },
+
   "about": {
     "title": "about",
     "subtitle": "Let's quickly talk about this little boy!",

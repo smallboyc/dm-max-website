@@ -12,10 +12,10 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 export const navigation = [
-  { id: 0, name: "home", href: "" },
-  { id: 1, name: "education", href: "/education" },
-  { id: 2, name: "about", href: "/about" },
-  { id: 3, name: "contact", href: "/contact" },
+  { id: 0, name: "home", href: "#home" },
+  { id: 1, name: "education", href: "#education" },
+  { id: 2, name: "about", href: "#about" },
+  { id: 3, name: "contact", href: "#contact" },
 ];
 
 const social = [
@@ -56,8 +56,8 @@ export default function Navigation({ locale }: { locale: string }) {
       {({ open }) => (
         <>
           <div className="max-w-container py-2">
-            <div className="flex h-16 justify-between">
-              <div className="flex">
+            <div className="flex h-16 justify-between items-center">
+              <div className="flex items-center">
                 <div className="flex flex-shrink-0 items-center">
                   <Image
                     alt=""
@@ -124,11 +124,7 @@ export default function Navigation({ locale }: { locale: string }) {
                   key={nav.id}
                   as="a"
                   href={nav.href}
-                  className={classNames(
-                    `/${locale}${nav.href}` == pathname &&
-                      " border-variation text-variation/80 bg-indigo-50 ",
-                    " py-2 pl-3 pr-4 text-base font-medium block border-l-4 sm:pl-5 sm:pr-6 hover:bg-indigo-50 duration-100 ease-out"
-                  )}
+                  className="py-2 text-base font-medium block border-l-4 pl-5 sm:pr-6 hover:bg-indigo-50 duration-100 ease-out"
                 >
                   {t(nav.name)}
                 </Disclosure.Button>

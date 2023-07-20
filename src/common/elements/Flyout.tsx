@@ -3,11 +3,9 @@ import { Popover, Transition } from "@headlessui/react";
 import {
   ChevronDownIcon,
   ChevronRightIcon,
-  PhoneIcon,
-  PlayCircleIcon,
 } from "@heroicons/react/20/solid";
-import { ArrowPathIcon, SquaresPlusIcon } from "@heroicons/react/24/outline";
 import { SiNextdotjs, SiStrapi, SiTailwindcss } from "react-icons/si";
+import { useTranslations } from "next-intl";
 
 const solutions = [
   {
@@ -26,7 +24,7 @@ const solutions = [
   },
   {
     name: "Strapi",
-    description: "French Headless CMS",
+    description: "Headless CMS",
     href: "https://strapi.io/",
     color: "#7D3BF8",
     icon: SiStrapi,
@@ -34,10 +32,11 @@ const solutions = [
 ];
 
 export default function Flyout() {
+  const t = useTranslations("hero")
   return (
     <Popover className="relative md:flex md:justify-center md:items-center">
-      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:border-none">
-        <span>Made with</span>
+      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 border-none hover:border-none">
+        <span>{t("button_made_with")}</span>
         <ChevronDownIcon className="md:hidden h-5 w-5" aria-hidden="true" />
         <ChevronRightIcon
           className="hidden md:block h-5 w-5"
