@@ -17,11 +17,11 @@
 
 @layer base {
   h1 {
-    @apply text-extra leading-tight tracking-tight;
+    @apply text-gigalarge leading-tight tracking-tight;
   }
 
   h2 {
-    @apply text-xxxlarge leading-tight;
+    @apply text-megalarge leading-tight;
   }
 
   h3 {
@@ -38,16 +38,16 @@
 }
 
 @layer utilities {
-  .text-extra {
-    @apply text-3xl font-semibold md:text-4xl;
+  .text-gigalarge {
+    @apply text-6xl font-semibold md:text-8xl;
   }
 
-  .text-xxxlarge {
-    @apply text-6xl md:text-8xl;
+  .text-megalarge {
+    @apply text-4xl md:text-6xl;
   }
 
   .text-xxlarge {
-    @apply text-md md:text-2xl;
+    @apply text-2xl md:text-4xl;
   }
 
   .text-xlarge {
@@ -59,7 +59,7 @@
   }
 
   .text-medium {
-    @apply text-sm md:text-md;
+    @apply text-base md:text-md;
   }
 
   .text-normal {

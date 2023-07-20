@@ -14,6 +14,9 @@ import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LiaBusinessTimeSolid } from "react-icons/lia";
+import { AiOutlineTeam } from "react-icons/ai";
+import { PiArticleMediumBold } from "react-icons/pi";
 
 const navigation = [
   { name: "Home", href: "/works", icon: HomeIcon },
@@ -27,10 +30,13 @@ const navigation = [
   { name: "Art", href: "#", icon: PencilIcon },
   { name: "Game", href: "#", icon: PuzzlePieceIcon },
   { name: "Data / ML / DL", href: "#", icon: ChartPieIcon },
+  { name: "Entertainment", href: "#", icon: PiArticleMediumBold },
 ];
 const type = [
   { name: "School", href: "#", icon: AcademicCapIcon },
-  { name: "Personal ", href: "#", icon: UserIcon },
+  { name: "Personal", href: "#", icon: UserIcon },
+  { name: "Team", href: "#", icon: AiOutlineTeam },
+  { name: "Internship", href: "#", icon: LiaBusinessTimeSolid },
   ,
 ];
 

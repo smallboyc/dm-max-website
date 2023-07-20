@@ -78,8 +78,8 @@ const SIZE_MAPS: Record<Size, any> = {
   [Size.LARGE]: "text-large",
   [Size.XLARGE]: "text-xlarge",
   [Size.XXLARGE]: "text-xxlarge",
-  [Size.XXXLARGE]: "text-xxxlarge",
-  [Size.EXTRA]: "text-extra",
+  [Size.XXXLARGE]: "text-megalarge",
+  [Size.EXTRA]: "text-gigaLarge",
 };
 
 const COLOR_MAPS: Record<Color, string> = {

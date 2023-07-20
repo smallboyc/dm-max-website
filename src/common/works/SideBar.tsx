@@ -68,13 +68,15 @@ export default function SideBar({ data }: any) {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
                     <div className="flex h-16 shrink-0 items-center">
-                      <Image
-                        className="h-8 w-auto"
-                        src="/images/logo-dm-max-variation.png"
-                        alt="Logo"
-                        width={500}
-                        height={500}
-                      />
+                      <Link href="/">
+                        <Image
+                          className="h-8 w-auto"
+                          src="/images/logo-dm-max-variation.png"
+                          alt="Logo"
+                          width={500}
+                          height={500}
+                        />
+                      </Link>
                     </div>
                     <Features author={false} />
                   </div>
