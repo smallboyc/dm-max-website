@@ -11,11 +11,10 @@ export default async function Workslayout({
   const { locale } = params;
   const { data } = await getData("navigations?populate=*");
   const navigation_data = data[0].attributes.domains.data;
-  console.log(navigation_data);
 
   return (
     <WorksNavigation locale={locale} data={navigation_data}>
-      {children}
+      <div className="my-10">{children}</div>
     </WorksNavigation>
   );
 }
