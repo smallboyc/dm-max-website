@@ -2,20 +2,21 @@ import Head from "@/common/works/projects/Head";
 import { getData } from "@/lib/strapi";
 
 export default async function Works({ params }: { params: { slug: string } }) {
-  const { data } = await getData("domains?populate=*");
+  const { data } = await getData("domains?populate=works.image");
+
   const getDomainTitle = (title: any) => {
     return title;
   };
 
-  const getNumerOfWorks = (works: any) => {
+  const getNumberOfWorks = (works: any) => {
     let nb = 0;
     works.map((work: any) => nb++);
     return nb;
   };
+
   return (
     <div>
       <h1>
-        Hello{" "}
         {data.map(
           (domain: any) =>
             domain.attributes.slug == params.slug &&
@@ -27,11 +28,16 @@ export default async function Works({ params }: { params: { slug: string } }) {
         {data.map(
           (domain: any) =>
             domain.attributes.slug == params.slug &&
-            getNumerOfWorks(domain.attributes.works.data)
+            getNumberOfWorks(domain.attributes.works.data)
         )}{" "}
         projets.
       </p>
-      <Head />
+      {data.map(
+        (domain: any) =>
+          domain.attributes.slug == params.slug && (
+            <Head key={domain.id} data={domain.attributes.works.data} />
+          )
+      )}{" "}
     </div>
   );
 }
