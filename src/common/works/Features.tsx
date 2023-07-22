@@ -118,7 +118,7 @@ export default function Features({ locale, author, data }: any) {
         {author && (
           <li className="-mx-6 mt-auto">
             <Link
-              href="#"
+              href="/#about"
               className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
             >
               <Image

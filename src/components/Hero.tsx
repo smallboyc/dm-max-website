@@ -125,12 +125,21 @@ export default function Hero() {
             <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
               <div className="-m-2 rounded-xl bg-primary/5 p-2 ring-1 ring-inset ring-primary/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <Image
-                  src="/images/test.jpg"
+                  src="/images/banner.jpg"
                   alt="App screenshot"
                   width={2432}
                   height={1442}
                   className="w-[76rem] rounded-md shadow-2xl ring-1 ring-primary/10"
                 />
+                {/* <div className="w-[76rem] rounded-md shadow-2xl ring-1 ring-primary/10">
+                  <iframe
+                    width={1200}
+                    height={670}
+                    src="https://www.youtube.com/embed/ge8dJvs7MP0"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  ></iframe>
+                </div> */}
               </div>
             </div>
           </div>

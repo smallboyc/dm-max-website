@@ -6,7 +6,7 @@ import Breadcrumb from "@/common/elements/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 import Features from "@/common/works/Features";
-export default function WorksNavigation({ locale, children, data }: any){
+export default function WorksNavigation({ locale, children, data }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -104,7 +104,7 @@ export default function WorksNavigation({ locale, children, data }: any){
           </div>
         </div>
 
-        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+        <div className="sticky top-0 z-50 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
           <button
             type="button"
             className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
@@ -124,7 +124,7 @@ export default function WorksNavigation({ locale, children, data }: any){
               />
             </Link>
           </div>
-          <Link href="#">
+          <Link href="/#about">
             <Image
               className="h-8 w-auto rounded-full"
               src="/images/me.jpg"
@@ -137,6 +137,7 @@ export default function WorksNavigation({ locale, children, data }: any){
 
         <main className="lg:pl-72">
           <Breadcrumb />
+
           <div className="px-4 sm:px-6 lg:px-8">{children}</div>
         </main>
       </div>
