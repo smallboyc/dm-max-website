@@ -1,11 +1,12 @@
-const stats = [
-  { id: 1, name: "projects", value: "12" },
-  { id: 2, name: "Subscribers", value: "24" },
-  { id: 3, name: "Likes", value: "14" },
-  { id: 4, name: "Comments", value: "7" },
-];
+import { numberOf } from "@/app/[locale]/works/page";
 
-export default function Stats() {
+export default function Stats({ users, data }: any) {
+  let stats = [
+    { id: 1, name: "projects", value: numberOf(data) },
+    { id: 2, name: "Subscribers", value: numberOf(users) },
+    { id: 3, name: "Likes", value: "14" },
+    { id: 4, name: "Comments", value: "7" },
+  ];
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-none">

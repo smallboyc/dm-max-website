@@ -66,7 +66,7 @@ export default function Join() {
                         <div>
                           <span className="h-5 w-5 bg-variation rounded-full flex items-center justify-center ring-8 ring-primary">
                             <CheckIcon
-                              className="h-3 w-3 text-white"
+                              className="h-3 w-3 text-primary"
                               aria-hidden="true"
                             />
                           </span>

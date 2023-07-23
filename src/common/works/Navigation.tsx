@@ -2,13 +2,14 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Home from "./Home";
 import Breadcrumb from "@/common/elements/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 import Features from "@/common/works/Features";
 export default function WorksNavigation({ locale, children, data }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const navigation_data = data[0].attributes.domains.data;
   return (
     <>
       <div>
@@ -77,7 +78,15 @@ export default function WorksNavigation({ locale, children, data }: any) {
                         />
                       </Link>
                     </div>
-                    <Features locale={locale} author={false} data={data} />
+                    <Home locale={locale} />
+                    <div className="text-xs font-semibold leading-6 text-variation">
+                      {data[0].attributes.title}
+                    </div>
+                    <Features
+                      locale={locale}
+                      author={false}
+                      data={navigation_data}
+                    />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -100,7 +109,11 @@ export default function WorksNavigation({ locale, children, data }: any) {
                 />
               </Link>
             </div>
-            <Features locale={locale} author={true} data={data} />
+            <Home locale={locale} />
+            <div className="text-xs font-semibold leading-6 text-variation mt-2">
+              {data[0].attributes.title}
+            </div>
+            <Features locale={locale} author={true} data={navigation_data} />
           </div>
         </div>
 

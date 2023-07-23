@@ -10,10 +10,9 @@ export default async function Workslayout({
 }) {
   const { locale } = params;
   const { data } = await getData("navigations?populate=*");
-  const navigation_data = data[0].attributes.domains.data;
 
   return (
-    <WorksNavigation locale={locale} data={navigation_data}>
+    <WorksNavigation locale={locale} data={data}>
       <div>{children}</div>
     </WorksNavigation>
   );

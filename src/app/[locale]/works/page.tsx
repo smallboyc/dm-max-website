@@ -3,14 +3,16 @@ import { Title, Text } from "@/common/typography";
 import Stats from "@/common/works/Stats";
 import Head from "@/common/works/projects/Head";
 
+export const numberOf = (works: any) => {
+  let nb: number = 0;
+  works.map((work: any) => nb++);
+  return nb;
+};
+
 export default async function HomeWorks() {
   const { data } = await getData("works?populate=*");
+  const users = await getData("users");
 
-  const numberOfWorks = (works: any) => {
-    let nb: number = 0;
-    works.map((work: any) => nb++);
-    return nb;
-  };
   return (
     <div>
       <div className="flex flex-col gap-3 items-center">
@@ -26,9 +28,8 @@ export default async function HomeWorks() {
           {" "}
           Discover the latest event and every projects on the Home page.
         </Text>
-        <p>Vous possédez au total {numberOfWorks(data)} projets.</p>
       </div>
-      <Stats />
+      <Stats users={users} data={data} />
       <Head data={data} />
     </div>
   );
