@@ -14,7 +14,7 @@ export default async function Workslayout({
 
   return (
     <WorksNavigation locale={locale} data={navigation_data}>
-      <div className="my-10">{children}</div>
+      <div>{children}</div>
     </WorksNavigation>
   );
 }

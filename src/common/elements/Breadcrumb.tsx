@@ -2,13 +2,13 @@ import { HomeIcon } from "@heroicons/react/20/solid";
 
 const pages = [
   { name: "Projects", href: "#", current: false },
-  { name: "Project Nero", href: "#", current: true },
+  { name: "Projects", href: "#", current: false },
 ];
 
 export default function Breadcrumb() {
   return (
     <nav
-      className="flex border-b border-gray-200 bg-white"
+      className="flex border-b border-gray-200 bg-white items-center fixed w-full z-50"
       aria-label="Breadcrumb"
     >
       <ol

@@ -20,6 +20,17 @@
     "button_discover": "Découvrir",
     "button_made_with": "Fait avec"
   },
+  "join": {
+    "title": "S'abonner à ",
+    "subtitle": "Vos avantages",
+    "get_1": "Inscription automatique à la newsletter",
+    "get_2": "Accès aux notes et commentaires",
+    "get_3": "Accès aux making-of des projets",
+    "email": "E-mail",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "button": "S'abonner"
+  },
   "education": {
     "title": "éducation",
     "subtitle": "Parce que tout commence par la formation!",

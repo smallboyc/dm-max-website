@@ -14,6 +14,9 @@
     Range: decimals from 0 to 1, recommended 0.8+ */
   --border-threshold: 0.8;
 }
+::-ms-reveal {
+  filter: invert(100%);
+}
 
 html {
   scroll-behavior: smooth !important;
@@ -82,5 +85,6 @@ html {
   .max-border-website {
     @apply xl:container mx-auto shadow-xl;
   }
+ 
 }
 

@@ -5,10 +5,7 @@ export default function Head({ data }: any) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {data.map((post: any) => (
-            <article
-              key={post.id}
-              className="flex flex-col items-start justify-between"
-            >
+            <article key={post.id} className="flex flex-col items-start ">
               <div className="relative w-full">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${post.attributes.image.data.attributes.url}`}

@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 export default function Tools() {
   const t = useTranslations("tools");
   return (
-    <div className="max-w-container flex flex-col items-center gap-10 justify-center">
+    <div className="max-w-container flex flex-col items-center gap-10 justify-center pt-10 pb-20">
       <div className="flex flex-col items-center gap-5">
         <Title
           size={Title.size.LARGE}

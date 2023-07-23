@@ -20,6 +20,17 @@
     "button_discover": "Discover",
     "button_made_with": "Made with"
   },
+  "join": {
+    "title": "Subscribe to ",
+    "subtitle": "Here's what you get",
+    "get_1": "Automatic subscription to the newsletter",
+    "get_2": "Access to reviews and ratings",
+    "get_3": "Access to the projects making-of",
+    "email": "E-mail",
+    "username": "Username",
+    "password": "Password",
+    "button": "Subscribe"
+  },
   "education": {
     "title": "education",
     "subtitle": "Because it all starts with education!",

@@ -32,7 +32,7 @@ const education = [
 export default function Education() {
   const t = useTranslations("education");
   return (
-    <section id="education" className="scroll-mt-20 bg-slate-100/50 py-10">
+    <section id="education" className="scroll-mt-20 bg-slate-100/50 py-20">
       <div className="max-w-container flex flex-col items-center gap-10 justify-center">
         <div className="flex flex-col items-center gap-5">
           <Title

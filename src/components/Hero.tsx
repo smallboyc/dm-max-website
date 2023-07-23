@@ -38,7 +38,7 @@ export default function Hero() {
   const t = useTranslations("hero");
   return (
     <div id="home" className="scroll-mt-20">
-      <div className="relative overflow-hidden isolate bg-white">
+      <div className="relative overflow-hidden isolate bg-white lg:pb-10">
         <defs>
           <pattern
             id="0787a7c5-978c-4f66-83c7-11c213f99cb7"

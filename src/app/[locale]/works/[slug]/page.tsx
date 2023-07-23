@@ -11,8 +11,16 @@ export default async function Works({ params }: { params: { slug: string } }) {
 
   const getNumberOfWorks = (works: any) => {
     let nb = 0;
+    let result = "";
     works.map((work: any) => nb++);
-    return nb;
+    if (nb == 0) {
+      result = "Aucun projet disponible.";
+    } else if (nb == 1) {
+      result = "1 projet disponible";
+    } else {
+      result = `${nb} projets disponibles.`;
+    }
+    return result;
   };
 
   return (
@@ -30,13 +38,11 @@ export default async function Works({ params }: { params: { slug: string } }) {
           size={Text.size.LARGE}
           color={Text.color.GRAY}
         >
-          Vous possédez{" "}
           {data.map(
             (domain: any) =>
               domain.attributes.slug == params.slug &&
               getNumberOfWorks(domain.attributes.works.data)
-          )}{" "}
-          projets.
+          )}
         </Text>
       </div>
       {data.map(

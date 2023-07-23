@@ -1,12 +1,12 @@
 "use client";
 import { Title, Text } from "@/common/typography";
 import { Field, Form, Formik, FormikProps } from "formik";
-import { formSchema } from "@/lib/validation";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import { contactFormSchema } from "@/lib/validation";
+import { ToastContainer } from "react-toastify";
 import Input from "@/common/elements/Input";
 import { useTranslations } from "next-intl";
+import { registerToNewsletter } from "@/lib/sendgrid";
+import { sendMail } from "@/lib/sendgrid";
 interface formValues {
   firstname: string;
   lastname: string;
@@ -15,28 +15,8 @@ interface formValues {
   news: boolean;
 }
 
-const toastStyle: any = {
-  position: "bottom-right",
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "light",
-};
-
 export default function Contact() {
   const t = useTranslations("contact");
-  const registerToNewsletter = (data: any) => {
-    axios.post(`/api/sendgrid/newsletter`, data);
-    toast.success("Welcome to newsletter", toastStyle);
-  };
-
-  const sendMail = (data: any) => {
-    axios.post(`/api/sendgrid/mail`, data);
-    toast.success("Mail sent !", toastStyle);
-  };
 
   const initialValues: formValues = {
     firstname: "",
@@ -47,7 +27,10 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="scroll-mt-20 isolate bg-slate-100/50 p-10">
+    <div
+      id="contact"
+      className="scroll-mt-20 isolate bg-slate-100/50 px-10 py-20"
+    >
       <div className="mx-auto max-w-2xl text-center">
         <div className="flex flex-col items-center gap-5">
           <Title
@@ -70,7 +53,7 @@ export default function Contact() {
       <div className="mx-auto mt-16 max-w-xl sm:mt-20">
         <Formik
           initialValues={initialValues}
-          validationSchema={formSchema}
+          validationSchema={contactFormSchema}
           onSubmit={(values, { resetForm }) => {
             values.news && registerToNewsletter(values);
             sendMail(values);

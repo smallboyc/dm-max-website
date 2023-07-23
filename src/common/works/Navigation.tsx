@@ -137,8 +137,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
 
         <main className="lg:pl-72">
           <Breadcrumb />
-
-          <div className="px-4 sm:px-6 lg:px-8">{children}</div>
+          <div className="px-4 sm:px-6 lg:px-8 py-20">{children}</div>
         </main>
       </div>
     </>
