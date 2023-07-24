@@ -4,17 +4,21 @@ import { getData } from "@/lib/strapi";
 
 const types: string[] = [];
 
-const checkTypes = async () => {
-  const { data } = await getData("types");
+const checkTypes = async (locale: any) => {
+  const { data } = await getData(`types?locale=${locale}`);
   data.map((el: any) => types.push(el.attributes.slug));
 };
 
-export default async function Works({ params }: { params: { slug: string } }) {
-  checkTypes();
+export default async function Works({
+  params,
+}: {
+  params: { slug: string; locale: string };
+}) {
+  checkTypes(params.locale);
   const { data } = await getData(
-    `${
-      types.includes(params.slug) ? "types" : "domains"
-    }?populate[works][populate]=*`
+    `${types.includes(params.slug) ? "types" : "domains"}?locale=${
+      params.locale
+    }&populate[works][populate]=*`
   );
 
   const getDomainTitle = (title: any) => {
@@ -26,11 +30,18 @@ export default async function Works({ params }: { params: { slug: string } }) {
     let result = "";
     works.map((work: any) => nb++);
     if (nb == 0) {
-      result = "Aucun projet disponible.";
+      result =
+        params.locale == "en"
+          ? "No project available"
+          : "Aucun projet disponible.";
     } else if (nb == 1) {
-      result = "1 projet disponible";
+      result =
+        params.locale == "en" ? "1 project available." : "1 projet disponible.";
     } else {
-      result = `${nb} projets disponibles.`;
+      result =
+        params.locale == "en"
+          ? `${nb} projects available.`
+          : `${nb} projets disponibles.`;
     }
     return result;
   };
@@ -41,7 +52,7 @@ export default async function Works({ params }: { params: { slug: string } }) {
         <Title size={Title.size.XXXLARGE} weight={Title.weight.BOLD}>
           {data.map(
             (domain: any) =>
-              domain.attributes.slug == params.slug &&
+              domain.attributes.slug.includes(params.slug) &&
               getDomainTitle(domain.attributes.title)
           )}
         </Title>
@@ -52,14 +63,14 @@ export default async function Works({ params }: { params: { slug: string } }) {
         >
           {data.map(
             (domain: any) =>
-              domain.attributes.slug == params.slug &&
+              domain.attributes.slug.includes(params.slug) &&
               getNumberOfWorks(domain.attributes.works.data)
           )}
         </Text>
       </div>
       {data.map(
         (domain: any) =>
-          domain.attributes.slug == params.slug && (
+          domain.attributes.slug.includes(params.slug) && (
             <Head key={domain.id} data={domain.attributes.works.data} />
           )
       )}{" "}

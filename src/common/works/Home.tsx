@@ -3,8 +3,6 @@ import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const navigation = { name: "Home", icon: HomeIcon };
-
 export default function Home({ locale }: any) {
   const pathname = usePathname();
   return (
@@ -12,7 +10,7 @@ export default function Home({ locale }: any) {
       <ul role="list" className="flex flex-1 flex-col">
         <li>
           <ul role="list" className="-mx-2 space-y-1">
-            <li key={navigation.name}>
+            <li key="home">
               <Link
                 href="/works"
                 className={classNames(
@@ -22,12 +20,12 @@ export default function Home({ locale }: any) {
                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                 )}
               >
-                <navigation.icon
+                <HomeIcon
                   key={""}
                   className="h-6 w-6 shrink-0"
                   aria-hidden="true"
                 />
-                {navigation.name}
+                {locale == "en" ? "Home" : "Accueil"}
               </Link>
             </li>
           </ul>

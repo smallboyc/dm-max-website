@@ -7,10 +7,12 @@ import Breadcrumb from "@/common/elements/Breadcrumb";
 import Features from "@/common/works/Features";
 import UserLink from "./UserLink";
 import Logo from "../elements/Logo";
+
 export default function WorksNavigation({ locale, children, data }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const domains_data = data[0].attributes.domains.data;
   const types_data = data[1].attributes.types.data;
+
   return (
     <>
       <div>
@@ -72,6 +74,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
                       <Logo works />
                     </div>
                     <Home locale={locale} />
+                    {/* <Language locale={locale} /> */}
                     <div className="text-xs font-semibold leading-6 text-variation">
                       {data[0].attributes.title}
                     </div>
@@ -96,6 +99,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
               <Logo works />
             </div>
             <Home locale={locale} />
+            {/* <Language locale={locale} /> */}
             <div className="text-xs font-semibold leading-6 text-variation mt-2">
               {data[0].attributes.title}
             </div>
@@ -104,6 +108,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
               {data[1].attributes.title}
             </div>
             <Features locale={locale} data={types_data} />
+
             <UserLink username="Maxence Dupuis" />
           </div>
         </div>

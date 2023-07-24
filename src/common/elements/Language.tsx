@@ -5,13 +5,14 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { FR } from "country-flag-icons/react/3x2";
 import { US } from "country-flag-icons/react/3x2";
 import classNames from "classnames";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const languages = ["fr", "en"];
 
 export default function Language({ locale }: { locale: string }) {
   const [selected, setSelected] = useState(locale);
   const router = useRouter();
+  const pathname = usePathname();
   const redirection = (value: string) => {
     setSelected(value);
     router.replace(`/${value}`, { scroll: false });

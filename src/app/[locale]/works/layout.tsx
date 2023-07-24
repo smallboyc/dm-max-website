@@ -9,7 +9,9 @@ export default async function Workslayout({
   params: { locale: string };
 }) {
   const { locale } = params;
-  const { data } = await getData("navigations?populate=*");
+  const { data } = await getData(
+    `navigations?locale=${params.locale}&populate=*`
+  );
 
   return (
     <WorksNavigation locale={locale} data={data}>

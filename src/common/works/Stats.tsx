@@ -1,11 +1,19 @@
 import { numberOf } from "@/app/[locale]/works/page";
 
-export default function Stats({ users, data }: any) {
+export default function Stats({ users, data, locale }: any) {
   let stats = [
-    { id: 1, name: "projects", value: numberOf(data) },
-    { id: 2, name: "Subscribers", value: numberOf(users) },
-    { id: 3, name: "Likes", value: "14" },
-    { id: 4, name: "Comments", value: "7" },
+    {
+      id: 1,
+      name: locale == "en" ? "Projects" : "Projets",
+      value: numberOf(data),
+    },
+    {
+      id: 2,
+      name: locale == "en" ? "Subscribers" : "Abonnés",
+      value: numberOf(users),
+    },
+    { id: 3, name: locale == "en" ? "Likes" : "J'aime", value: "14" },
+    { id: 4, name: locale == "en" ? "Comments" : "Commentaires", value: "7" },
   ];
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8">

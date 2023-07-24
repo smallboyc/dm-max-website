@@ -9,15 +9,21 @@ export const numberOf = (works: any) => {
   return nb;
 };
 
-export default async function HomeWorks() {
-  const { data } = await getData("works?populate=*");
+export default async function HomeWorks({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  console.log(params.locale);
+  const { data } = await getData(`works?locale=${params.locale}&populate=*`);
   const users = await getData("users");
 
   return (
     <div>
       <div className="flex flex-col gap-3 items-center">
         <Title size={Title.size.XXXLARGE} weight={Title.weight.BOLD}>
-          Welcome to <span className="text-variation">works</span>!
+          {params.locale == "en" ? "Welcome to" : "Bienvenue sur"}{" "}
+          <span className="text-variation">works</span>!
         </Title>
 
         <Text
@@ -26,10 +32,12 @@ export default async function HomeWorks() {
           color={Text.color.GRAY}
         >
           {" "}
-          Discover the latest event and every projects on the Home page.
+          {params.locale == "en"
+            ? "Discover the latest event and every projects on the Home page."
+            : "Découvrez tous les projets sur cette page."}
         </Text>
       </div>
-      <Stats users={users} data={data} />
+      <Stats users={users} data={data} locale={params.locale} />
       <Head data={data} />
     </div>
   );

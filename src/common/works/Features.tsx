@@ -20,13 +20,13 @@ const navigation = [
   { slug: "2d-3d", icon: CubeIcon },
   { slug: "video", icon: VideoCameraIcon },
   { slug: "art", icon: PencilIcon },
-  { slug: "game", icon: PuzzlePieceIcon },
+  { slug: "game-jeux", icon: PuzzlePieceIcon },
   { slug: "data-ml-dl", icon: ChartPieIcon },
-  { slug: "entertainment", icon: PiArticleMediumBold },
-  { slug: "school", icon: AcademicCapIcon },
-  { slug: "personal", icon: UserIcon },
-  { slug: "team", icon: AiOutlineTeam },
-  { slug: "internship", icon: LiaBusinessTimeSolid },
+  { slug: "entertainment-divertissement", icon: PiArticleMediumBold },
+  { slug: "school-ecole", icon: AcademicCapIcon },
+  { slug: "personal-personnel", icon: UserIcon },
+  { slug: "team-collaboration", icon: AiOutlineTeam },
+  { slug: "internship-stage", icon: LiaBusinessTimeSolid },
 ];
 
 export default function Features({ locale, data }: any) {
@@ -48,7 +48,7 @@ export default function Features({ locale, data }: any) {
             >
               {navigation.map(
                 (el) =>
-                  el.slug == item.attributes.slug && (
+                  el.slug.includes(item.attributes.slug) && (
                     <el.icon
                       key={""}
                       className="h-6 w-6 shrink-0"
