@@ -9,7 +9,6 @@ import UserLink from "./UserLink";
 import Logo from "../elements/Logo";
 export default function WorksNavigation({ locale, children, data }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  console.log(data);
   const domains_data = data[0].attributes.domains.data;
   const types_data = data[1].attributes.types.data;
   return (
@@ -124,7 +123,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
         </div>
 
         <main className="lg:pl-72">
-          <Breadcrumb />
+          <Breadcrumb locale={locale} />
           <div className="px-4 sm:px-6 lg:px-8 py-20">{children}</div>
         </main>
       </div>

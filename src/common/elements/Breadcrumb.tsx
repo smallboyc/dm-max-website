@@ -1,11 +1,14 @@
 import { HomeIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const pages = [
-  { name: "Projects", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-];
+const breadcrumb = (pathname: any, locale: any) => {
+  return pathname.split("/").filter((el: any) => el != "" && el != locale);
+};
 
-export default function Breadcrumb() {
+export default function Breadcrumb({ locale }: any) {
+  const pathname = usePathname();
+  const breadcrumbs = breadcrumb(pathname, locale);
   return (
     <nav
       className="flex border-b border-gray-200 bg-white items-center fixed w-full z-50"
@@ -17,14 +20,13 @@ export default function Breadcrumb() {
       >
         <li className="flex">
           <div className="flex items-center">
-            <a href="#" className="text-gray-400 hover:text-gray-500">
+            <Link href="/" className="text-gray-400 hover:text-gray-500">
               <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
-              <span className="sr-only">Home</span>
-            </a>
+            </Link>
           </div>
         </li>
-        {pages.map((page) => (
-          <li key={page.name} className="flex">
+        {breadcrumbs.map((page: any) => (
+          <li key={page} className="flex">
             <div className="flex items-center">
               <svg
                 className="h-full w-6 flex-shrink-0 text-gray-200"
@@ -35,13 +37,13 @@ export default function Breadcrumb() {
               >
                 <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
               </svg>
-              <a
-                href={page.href}
-                className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+              <Link
+                href={page == "works" ? `/${page}` : `/works/${page}`}
+                className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 capitalize"
                 aria-current={page.current ? "page" : undefined}
               >
-                {page.name}
-              </a>
+                {page}
+              </Link>
             </div>
           </li>
         ))}
