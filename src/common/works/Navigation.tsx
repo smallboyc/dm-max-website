@@ -4,12 +4,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Home from "./Home";
 import Breadcrumb from "@/common/elements/Breadcrumb";
-import Image from "next/image";
-import Link from "next/link";
 import Features from "@/common/works/Features";
+import UserLink from "./UserLink";
+import Logo from "../elements/Logo";
 export default function WorksNavigation({ locale, children, data }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const navigation_data = data[0].attributes.domains.data;
+  console.log(data);
+  const domains_data = data[0].attributes.domains.data;
+  const types_data = data[1].attributes.types.data;
   return (
     <>
       <div>
@@ -68,25 +70,18 @@ export default function WorksNavigation({ locale, children, data }: any) {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
                     <div className="flex h-16 shrink-0 items-center">
-                      <Link href="/">
-                        <Image
-                          className="h-8 w-auto"
-                          src="/images/logo-dm-max-variation.png"
-                          alt="Logo"
-                          width={500}
-                          height={500}
-                        />
-                      </Link>
+                      <Logo works />
                     </div>
                     <Home locale={locale} />
                     <div className="text-xs font-semibold leading-6 text-variation">
                       {data[0].attributes.title}
                     </div>
-                    <Features
-                      locale={locale}
-                      author={false}
-                      data={navigation_data}
-                    />
+                    <Features locale={locale} data={domains_data} />
+                    <div className="text-xs font-semibold leading-6 text-variation">
+                      {data[1].attributes.title}
+                    </div>
+                    <Features locale={locale} data={types_data} />
+                    <UserLink username="Maxence Dupuis" />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -99,21 +94,18 @@ export default function WorksNavigation({ locale, children, data }: any) {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6">
             <div className="flex h-16 shrink-0 items-center">
-              <Link href="/">
-                <Image
-                  className="h-8 w-auto"
-                  src="/images/logo-dm-max-variation.png"
-                  alt="Logo"
-                  width={500}
-                  height={500}
-                />
-              </Link>
+              <Logo works />
             </div>
             <Home locale={locale} />
             <div className="text-xs font-semibold leading-6 text-variation mt-2">
               {data[0].attributes.title}
             </div>
-            <Features locale={locale} author={true} data={navigation_data} />
+            <Features locale={locale} data={domains_data} />
+            <div className="text-xs font-semibold leading-6 text-variation mt-2">
+              {data[1].attributes.title}
+            </div>
+            <Features locale={locale} data={types_data} />
+            <UserLink username="Maxence Dupuis" />
           </div>
         </div>
 
@@ -123,29 +115,12 @@ export default function WorksNavigation({ locale, children, data }: any) {
             className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
-            <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 text-sm font-semibold leading-6 text-white">
-            <Link href="/">
-              <Image
-                className="h-8 w-auto"
-                src="/images/logo-dm-max-variation.png"
-                alt="Logo"
-                width={500}
-                height={500}
-              />
-            </Link>
+            <Logo works />
           </div>
-          <Link href="/#about">
-            <Image
-              className="h-8 w-auto rounded-full"
-              src="/images/me.jpg"
-              alt="Logo"
-              width={500}
-              height={500}
-            />
-          </Link>
+          <UserLink />
         </div>
 
         <main className="lg:pl-72">

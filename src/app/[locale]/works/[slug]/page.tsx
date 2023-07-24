@@ -2,8 +2,20 @@ import { Title, Text } from "@/common/typography";
 import Head from "@/common/works/projects/Head";
 import { getData } from "@/lib/strapi";
 
+const types: string[] = [];
+
+const checkTypes = async () => {
+  const { data } = await getData("types");
+  data.map((el: any) => types.push(el.attributes.slug));
+};
+
 export default async function Works({ params }: { params: { slug: string } }) {
-  const { data } = await getData("domains?populate[works][populate]=*");
+  checkTypes();
+  const { data } = await getData(
+    `${
+      types.includes(params.slug) ? "types" : "domains"
+    }?populate[works][populate]=*`
+  );
 
   const getDomainTitle = (title: any) => {
     return title;

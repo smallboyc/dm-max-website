@@ -9,11 +9,10 @@ import {
   VideoCameraIcon,
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LiaBusinessTimeSolid } from "react-icons/lia";
 import { AiOutlineTeam } from "react-icons/ai";
+import { LiaBusinessTimeSolid } from "react-icons/lia";
 import { PiArticleMediumBold } from "react-icons/pi";
 
 const navigation = [
@@ -24,91 +23,43 @@ const navigation = [
   { slug: "game", icon: PuzzlePieceIcon },
   { slug: "data-ml-dl", icon: ChartPieIcon },
   { slug: "entertainment", icon: PiArticleMediumBold },
+  { slug: "school", icon: AcademicCapIcon },
+  { slug: "personal", icon: UserIcon },
+  { slug: "team", icon: AiOutlineTeam },
+  { slug: "internship", icon: LiaBusinessTimeSolid },
 ];
 
-const type = [
-  { name: "School", href: "#", icon: AcademicCapIcon },
-  { name: "Personal", href: "#", icon: UserIcon },
-  { name: "Team", href: "#", icon: AiOutlineTeam },
-  { name: "Internship", href: "#", icon: LiaBusinessTimeSolid },
-  ,
-];
-
-export default function Features({ locale, author, data }: any) {
+export default function Features({ locale, data }: any) {
   const pathname = usePathname();
   return (
-    <nav className="flex flex-1 flex-col -mt-2">
-      <ul role="list" className="flex flex-1 flex-col gap-y-7">
-        <li>
-          <ul role="list" className="-mx-2 space-y-1">
-            {data.map((item: any) => (
-              <li key={item.attributes.title}>
-                <Link
-                  href={`/works/${
-                    item.attributes.slug == "home" ? "" : item.attributes.slug
-                  }`}
-                  className={classNames(
-                    pathname == `/${locale}/works/${item.attributes.slug}` ||
-                      pathname == `/works/${item.attributes.slug}`
-                      ? "bg-gray-800 text-white"
-                      : "text-gray-400 hover:text-white hover:bg-gray-800",
-                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                  )}
-                >
-                  {navigation.map(
-                    (el) =>
-                      el.slug == item.attributes.slug && (
-                        <el.icon
-                          key={""}
-                          className="h-6 w-6 shrink-0"
-                          aria-hidden="true"
-                        />
-                      )
-                  )}
-                  {item.attributes.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-        <li>
-          <div className="text-xs font-semibold leading-6 text-white">Type</div>
-          <ul role="list" className="-mx-2 mt-2 space-y-1">
-            {type.map((item: any) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-800 text-white"
-                      : "text-gray-400 hover:text-white hover:bg-gray-800",
-                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                  )}
-                >
-                  <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-        {author && (
-          <li className="-mx-6 mt-auto">
+    <nav className="-mt-2">
+      <ul role="list" className="-mx-2 space-y-1">
+        {data.map((item: any) => (
+          <li key={item.attributes.title}>
             <Link
-              href="/#about"
-              className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
+              href={`/works/${item.attributes.slug}`}
+              className={classNames(
+                pathname == `/${locale}/works/${item.attributes.slug}` ||
+                  pathname == `/works/${item.attributes.slug}`
+                  ? "bg-gray-800 text-white"
+                  : "text-gray-400 hover:text-white hover:bg-gray-800",
+                "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+              )}
             >
-              <Image
-                className="h-8 w-auto rounded-full"
-                src="/images/me.jpg"
-                alt="Logo"
-                width={500}
-                height={500}
-              />
-              <span aria-hidden="true">Maxence Dupuis</span>
+              {navigation.map(
+                (el) =>
+                  el.slug == item.attributes.slug && (
+                    <el.icon
+                      key={""}
+                      className="h-6 w-6 shrink-0"
+                      aria-hidden="true"
+                    />
+                  )
+              )}
+              {item.attributes.title}
             </Link>
           </li>
-        )}
+        ))}
       </ul>
     </nav>
   );

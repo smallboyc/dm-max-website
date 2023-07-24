@@ -10,6 +10,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import Logo from "./elements/Logo";
 
 export const navigation = [
   { id: 0, name: "home", href: "#home" },
@@ -59,12 +60,7 @@ export default function Navigation({ locale }: { locale: string }) {
             <div className="flex h-16 justify-between items-center">
               <div className="flex items-center">
                 <div className="flex flex-shrink-0 items-center">
-                  <Image
-                    alt=""
-                    src="/images/logo-dm-max.png"
-                    width={100}
-                    height={100}
-                  />
+                  <Logo />
                 </div>
                 <div className="hidden md:ml-12 lg:flex md:space-x-10 items-center">
                   {navigation.map((nav) => (
