@@ -39,8 +39,7 @@ export default function Features({ locale, data }: any) {
             <Link
               href={`/works/${item.attributes.slug}`}
               className={classNames(
-                pathname == `/${locale}/works/${item.attributes.slug}` ||
-                  pathname == `/works/${item.attributes.slug}`
+                pathname.includes(item.attributes.slug)
                   ? "bg-gray-800 text-white"
                   : "text-gray-400 hover:text-white hover:bg-gray-800",
                 "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"

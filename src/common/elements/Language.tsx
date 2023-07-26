@@ -12,7 +12,6 @@ const languages = ["fr", "en"];
 export default function Language({ locale }: { locale: string }) {
   const [selected, setSelected] = useState(locale);
   const router = useRouter();
-  const pathname = usePathname();
   const redirection = (value: string) => {
     setSelected(value);
     router.replace(`/${value}`, { scroll: false });

@@ -74,7 +74,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
                       <Logo works />
                     </div>
                     <Home locale={locale} />
-                    {/* <Language locale={locale} /> */}
+
                     <div className="text-xs font-semibold leading-6 text-variation">
                       {data[0].attributes.title}
                     </div>
@@ -99,7 +99,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
               <Logo works />
             </div>
             <Home locale={locale} />
-            {/* <Language locale={locale} /> */}
+
             <div className="text-xs font-semibold leading-6 text-variation mt-2">
               {data[0].attributes.title}
             </div>
