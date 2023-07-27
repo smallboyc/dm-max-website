@@ -47,7 +47,7 @@ export default async function Works({
   };
 
   return (
-    <div>
+    <div className="px-4 sm:px-6 lg:px-8 py-20">
       <div className="mx-auto max-w-2xl text-center flex flex-col gap-3">
         <Title size={Title.size.XXXLARGE} weight={Title.weight.BOLD}>
           {data.map(

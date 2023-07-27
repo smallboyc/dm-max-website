@@ -2,16 +2,12 @@
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import classNames from "classnames";
-const numberOfImages = (images: any) => {
-  let nb = 0;
-  images.map((image: any) => nb++);
-  return nb;
-};
+
 export default function Diaporama({ data }: any) {
   return (
-    <div className={`grid lg:grid-cols-${numberOfImages(data.images)} gap-5`}>
+    <div className="flex items-center justify-center flex-wrap gap-x-10 py-20 mx-auto max-w-4xl px-12">
       {data.images.map((image: any) => (
-        <figure key={image.id} className={`col-span-${image.size} mt-16`}>
+        <figure key={image.id} className={`w-full max-w-${image.size}`}>
           <Image
             className={classNames(
               image.ajusted && "aspect-video",

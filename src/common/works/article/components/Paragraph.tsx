@@ -1,13 +1,17 @@
-import { Text } from "@/common/typography";
+import { Text, Title } from "@/common/typography";
 export default function Paragraph({ data }: any) {
   return (
-    <>
-      <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+    <div className="flex flex-col gap-5 py-20 mx-auto max-w-4xl px-12">
+      <Title
+        size={Title.size.XLARGE}
+        weight={Title.weight.BOLD}
+        color={Title.color.PRIMARY}
+      >
         {data.title}
-      </h2>
-      <div className="text-sm">
-        <Text>{data.paragraph}</Text>
+      </Title>
+      <div className="leading-8">
+        <Text size={Text.size.NORMAL}>{data.paragraph}</Text>
       </div>
-    </>
+    </div>
   );
 }
