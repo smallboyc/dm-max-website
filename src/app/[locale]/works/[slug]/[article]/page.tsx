@@ -1,4 +1,5 @@
 import Article from "@/common/works/article/Article";
+import Reviews from "@/common/works/article/Reviews";
 import { getData } from "@/lib/strapi";
 
 export default async function ArticlePage({
@@ -13,6 +14,7 @@ export default async function ArticlePage({
   return (
     <>
       <Article data={data} params={params} />
+      <Reviews/>
     </>
   );
 }

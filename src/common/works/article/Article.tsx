@@ -11,7 +11,7 @@ export const components = [
   { name: "paragraph", balise: Paragraph },
   { name: "tools", balise: Tools },
   { name: "list", balise: List },
-  { name: "video", balise: Video},
+  { name: "video", balise: Video },
 ];
 
 export default function Article({
@@ -26,8 +26,11 @@ export default function Article({
       <div className="py-10 mx-auto max-w-4xl px-12">
         {data.map(
           (el: any) =>
-            el.attributes.work.data.attributes.slug == params.article && (
-              <div className="flex flex-col gap-20" key={el.attributes.work.data.attributes.slug}>
+            el.attributes.work.data?.attributes.slug == params.article && (
+              <div
+                className="flex flex-col gap-20"
+                key={el.attributes.work.data.attributes.slug}
+              >
                 {el.attributes.content.map((component: any) =>
                   components.map(
                     (el) =>

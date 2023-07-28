@@ -16,9 +16,12 @@ export default function Tools({ data }: any) {
           {data.technos.map((techno: any) => (
             <>
               {" "}
-              <div key={techno.id} className=" p-4 max-w-xs flex items-center">
+              <div
+                key={techno.id}
+                className=" p-4 flex items-center"
+              >
                 <Image
-                  className="w-full object-contain hover:scale-105 duration-150 ease-in-out"
+                  className="object-contain w-16 h-16 hover:scale-105 duration-150 ease-in-out rounded-xl tracking-wider"
                   src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${techno.image.data.attributes.url}`}
                   alt="Transistor"
                   width={500}

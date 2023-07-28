@@ -75,7 +75,7 @@ export default function Header({ data }: any) {
           height={500}
         />
         {data.banner.link != null && (
-          <Link href={data.banner.link}>
+          <Link href={data.banner.link} target="_blank">
             <figcaption className="mt-2 flex gap-x-2 text-sm leading-6 text-gray-500">
               <InformationCircleIcon
                 className="mt-0.5 h-5 w-5 flex-none text-gray-300"

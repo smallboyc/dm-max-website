@@ -1,9 +1,9 @@
 import { Text, Title } from "@/common/typography";
 export default function Paragraph({ data }: any) {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-6">
       <Title
-        size={Title.size.XLARGE}
+        size={Title.size.XXLARGE}
         weight={Title.weight.BOLD}
         color={Title.color.PRIMARY}
       >
