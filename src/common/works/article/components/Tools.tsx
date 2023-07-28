@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Tools({ data }: any) {
   return (
-    <div className=" py-5 sm:py-16 mx-auto max-w-4xl px-12">
+    <div className="">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-5 items-center">
         <Title
           size={Title.size.XLARGE}

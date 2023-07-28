@@ -2,14 +2,16 @@ import Paragraph from "./components/Paragraph";
 import Diaporama from "./components/Diaporama";
 import Header from "./components/Header";
 import Tools from "./components/Tools";
-import { Title } from "@/common/typography";
 import List from "./components/List";
+import Video from "./components/Video";
+
 export const components = [
   { name: "header", balise: Header },
   { name: "diaporama", balise: Diaporama },
   { name: "paragraph", balise: Paragraph },
   { name: "tools", balise: Tools },
   { name: "list", balise: List },
+  { name: "video", balise: Video},
 ];
 
 export default function Article({
@@ -21,11 +23,11 @@ export default function Article({
 }) {
   return (
     <div className="bg-slate-50">
-      <div className="py-10">
+      <div className="py-10 mx-auto max-w-4xl px-12">
         {data.map(
           (el: any) =>
             el.attributes.work.data.attributes.slug == params.article && (
-              <div key={el.attributes.work.data.attributes.slug}>
+              <div className="flex flex-col gap-20" key={el.attributes.work.data.attributes.slug}>
                 {el.attributes.content.map((component: any) =>
                   components.map(
                     (el) =>

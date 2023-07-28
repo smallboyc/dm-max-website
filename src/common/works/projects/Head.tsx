@@ -14,7 +14,7 @@ export default function Head({ data }: any) {
                 href={
                   pathname.includes(post.attributes.domain.data.attributes.slug)
                     ? `${pathname}/${post.attributes.slug}`
-                    : `${pathname}/${post.attributes.domain.data.attributes.slug}/${post.attributes.slug}`
+                    : `/works/${post.attributes.domain.data.attributes.slug}/${post.attributes.slug}`
                 }
               >
                 <div className="relative w-full hover:opacity-90 ">

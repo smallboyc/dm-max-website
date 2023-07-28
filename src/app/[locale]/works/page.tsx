@@ -19,7 +19,7 @@ export default async function HomeWorks({
   const users = await getData("users");
 
   return (
-    <div>
+    <div className="py-20">
       <div className="flex flex-col gap-3 items-center">
         <Title size={Title.size.XXXLARGE} weight={Title.weight.BOLD}>
           {params.locale == "en" ? "Welcome to" : "Bienvenue sur"}{" "}

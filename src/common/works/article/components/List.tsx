@@ -2,8 +2,8 @@ import { ChevronDoubleRightIcon } from "@heroicons/react/20/solid";
 
 export default function List({ data }: any) {
   return (
-    <div className="mx-auto max-w-4xl px-12">
-      <ul role="list" className="py-10 max-w-xl space-y-8 text-gray-600">
+    <div>
+      <ul role="list" className="max-w-xl space-y-8 text-gray-600">
         {data.elements.map((element: any) => (
           <>
             <li className="flex gap-x-3">

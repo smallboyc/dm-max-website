@@ -1,7 +1,7 @@
 import { Text, Title } from "@/common/typography";
 export default function Paragraph({ data }: any) {
   return (
-    <div className="flex flex-col gap-5 py-20 mx-auto max-w-4xl px-12">
+    <div className="flex flex-col gap-5">
       <Title
         size={Title.size.XLARGE}
         weight={Title.weight.BOLD}
