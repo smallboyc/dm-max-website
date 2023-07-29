@@ -16,3 +16,5 @@ export const contactFormSchema = Yup.object({
   message,
 });
 export const joinFormSchema = Yup.object({ email, firstname, password });
+export const signinFormSchema = Yup.object({ email, password });
+export const reviewFormSchema = Yup.object({ message });

@@ -38,7 +38,7 @@ const initialValues: formValues = {
 export default function Join() {
   const t = useTranslations("join");
   return (
-    <div className="bg-primary py-16 sm:py-24 lg:py-32">
+    <div id="join" className="bg-primary py-16 sm:py-24 lg:py-32 scroll-mt-20">
       <div className="mx-auto flex flex-col items-center lg:grid max-w-7xl grid-cols-1 gap-20 px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
         <div className="max-w-2xl tracking-tight text-white lg:col-span-7">
           <Text size={Text.size.XXXLARGE} weight={Text.weight.BOLD}>
@@ -89,7 +89,6 @@ export default function Join() {
             onSubmit={(values, { resetForm }) => {
               registerToNewsletter(values);
               newSubscriber(values);
-              console.log(values);
               resetForm();
             }}
           >

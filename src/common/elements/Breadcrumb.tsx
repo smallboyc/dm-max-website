@@ -11,7 +11,7 @@ export default function Breadcrumb({ locale }: any) {
   const breadcrumbs = breadcrumb(pathname, locale);
   return (
     <nav
-      className="flex border-b border-gray-200 bg-white items-center fixed w-full z-50"
+      className="flex border-b border-gray-200 bg-white items-center fixed w-full z-50 "
       aria-label="Breadcrumb"
     >
       <ol
