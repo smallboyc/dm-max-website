@@ -5,7 +5,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Home from "./Home";
 import Breadcrumb from "@/common/elements/Breadcrumb";
 import Features from "@/common/works/Features";
-import UserLink from "./UserLink";
+import Doc from "./Doc";
 import Logo from "../elements/Logo";
 
 export default function WorksNavigation({ locale, children, data }: any) {
@@ -83,7 +83,7 @@ export default function WorksNavigation({ locale, children, data }: any) {
                       {data[1].attributes.title}
                     </div>
                     <Features locale={locale} data={types_data} />
-                    <UserLink username="Maxence Dupuis" />
+                    <Doc doc="Documentation" />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -109,27 +109,29 @@ export default function WorksNavigation({ locale, children, data }: any) {
             </div>
             <Features locale={locale} data={types_data} />
 
-            <UserLink username="Maxence Dupuis" />
+            <Doc doc="Documentation" />
           </div>
         </div>
 
-        <div className="sticky top-0 z-50 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
-            onClick={() => setSidebarOpen(true)}
-          >
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-          <div className="flex-1 text-sm font-semibold leading-6 text-white">
-            <Logo works />
+        <div className="sticky top-0 z-50 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden justify-between">
+          <div className="flex gap-5 items-center">
+            <button
+              type="button"
+              className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
+              onClick={() => setSidebarOpen(true)}
+            >
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+            <div className="text-sm font-semibold leading-6 text-white">
+              <Logo works />
+            </div>
           </div>
-          <UserLink />
+          <Doc />
         </div>
 
         <main className="lg:pl-72">
           <Breadcrumb locale={locale} />
-          <div >{children}</div>
+          <div>{children}</div>
         </main>
       </div>
     </>

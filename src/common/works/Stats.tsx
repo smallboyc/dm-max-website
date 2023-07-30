@@ -1,6 +1,6 @@
 import { numberOf } from "@/app/[locale]/works/page";
 
-export default function Stats({ users, data, locale }: any) {
+export default function Stats({ users, reviews, data, locale }: any) {
   let stats = [
     {
       id: 1,
@@ -12,13 +12,16 @@ export default function Stats({ users, data, locale }: any) {
       name: locale == "en" ? "Subscribers" : "Abonnés",
       value: numberOf(users),
     },
-    { id: 3, name: locale == "en" ? "Likes" : "J'aime", value: "14" },
-    { id: 4, name: locale == "en" ? "Comments" : "Commentaires", value: "7" },
+    {
+      id: 3,
+      name: locale == "en" ? "Opinion" : "Avis",
+      value: numberOf(reviews),
+    },
   ];
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-none">
-        <dl className="mt-10 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mt-10 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.id} className="flex flex-col bg-primary/10 p-8">
               <dt className="text-sm font-semibold leading-6 text-gray-600">

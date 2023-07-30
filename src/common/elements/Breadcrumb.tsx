@@ -39,7 +39,7 @@ export default function Breadcrumb({ locale }: any) {
               </svg>
               <Link
                 href={page == "works" ? `/${page}` : `/works/${page}`}
-                className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 capitalize"
+                className="ml-4 text-xs sm:text-sm font-medium text-gray-500 hover:text-gray-700 capitalize"
                 aria-current={page.current ? "page" : undefined}
               >
                 {page}

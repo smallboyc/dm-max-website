@@ -3,6 +3,8 @@ import { Title, Text } from "@/common/typography";
 import Stats from "@/common/works/Stats";
 import Head from "@/common/works/projects/Head";
 
+export const revalidate = 30;
+
 export const numberOf = (works: any) => {
   let nb: number = 0;
   works.map((work: any) => nb++);
@@ -17,6 +19,7 @@ export default async function HomeWorks({
   console.log(params.locale);
   const { data } = await getData(`works?locale=${params.locale}&populate=*`);
   const users = await getData("users");
+  const reviews = await getData("reviews")
 
   return (
     <div className="py-20">
@@ -37,7 +40,7 @@ export default async function HomeWorks({
             : "Découvrez tous les projets sur cette page."}
         </Text>
       </div>
-      <Stats users={users} data={data} locale={params.locale} />
+      <Stats users={users} reviews={reviews.data} data={data} locale={params.locale} />
       <Head data={data} />
     </div>
   );

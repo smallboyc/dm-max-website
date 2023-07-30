@@ -2,6 +2,8 @@ import { Title, Text } from "@/common/typography";
 import Head from "@/common/works/projects/Head";
 import { getData } from "@/lib/strapi";
 
+export const revalidate = 30;
+
 const types: string[] = [];
 
 const checkTypes = async (locale: any) => {

@@ -23,7 +23,7 @@ export default function Header({ data }: any) {
   const pathname = usePathname();
   return (
     <div className="pt-20 flex flex-col gap-5 md:gap-10">
-      <div className="px-6 lg:px-8 border-l-2">
+      <div className="px-4 lg:px-8 border-l-2">
         <div className="mx-auto max-w-2xl lg:mx-0 flex flex-col gap-4 ">
           <div className="flex gap-6 items-center">
             <div className="bg-variation/50 rounded-xl w-fit py-1 px-2">

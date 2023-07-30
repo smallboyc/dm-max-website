@@ -26,11 +26,17 @@ export async function newSubscriber({ firstname, email, password }: any) {
 }
 
 export async function newReview({ author, rating, message, article }: any) {
+  let rate = "";
+  if (rating.length > 1) {
+    rate = "all";
+  } else {
+    rate = rating[0];
+  }
   axios
     .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/reviews`, {
       data: {
         author,
-        rating,
+        rating: rate,
         content: message,
         article,
       },

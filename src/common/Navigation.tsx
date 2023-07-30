@@ -1,7 +1,6 @@
 "use client";
 import { Disclosure } from "@headlessui/react";
 import { BiX, BiMenu } from "react-icons/bi";
-import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { usePathname } from "next/navigation";
